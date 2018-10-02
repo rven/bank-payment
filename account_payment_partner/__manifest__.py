@@ -1,11 +1,10 @@
-# -*- coding: utf-8 -*-
 # © 2014 Akretion - Alexis de Lattre <alexis.delattre@akretion.com>
 # © 2014 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 {
     'name': 'Account Payment Partner',
-    'version': '11.0.1.2.1',
+    'version': '12.0.1.0.0',
     'category': 'Banking addons',
     'license': 'AGPL-3',
     'summary': 'Adds payment mode on partners and invoices',
