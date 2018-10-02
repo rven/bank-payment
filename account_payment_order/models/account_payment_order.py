@@ -33,7 +33,7 @@ class AccountPaymentOrder(models.Model):
     payment_type = fields.Selection([
         ('inbound', 'Inbound'),
         ('outbound', 'Outbound'),
-        ], string='Payment Type', readonly=True, required=True)
+        ], readonly=True, required=True)
     payment_method_id = fields.Many2one(
         'account.payment.method', related='payment_mode_id.payment_method_id',
         readonly=True, store=True)

@@ -66,7 +66,7 @@ class AccountPaymentMode(models.Model):
     offsetting_account = fields.Selection([
         ('bank_account', 'Bank Account'),
         ('transfer_account', 'Transfer Account'),
-        ], string='Offsetting Account', default='bank_account')
+        ], default='bank_account')
     transfer_account_id = fields.Many2one(
         'account.account', string='Transfer Account',
         domain=[('reconcile', '=', True)],
@@ -80,8 +80,8 @@ class AccountPaymentMode(models.Model):
     move_option = fields.Selection([
         ('date', 'One move per payment date'),
         ('line', 'One move per payment line'),
-        ], string='Move Option', default='date')
-    post_move = fields.Boolean(string='Post Move', default=True)
+        ], default='date')
+    post_move = fields.Boolean(default=True)
 
     @api.multi
     @api.constrains(

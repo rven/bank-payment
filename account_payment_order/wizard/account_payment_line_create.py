@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # © 2009 EduSense BV (<http://www.edusense.nl>)
 # © 2011-2013 Therp BV (<https://therp.nl>)
 # © 2014-2015 ACSONE SA/NV (<https://acsone.eu>)
@@ -30,14 +29,13 @@ class AccountPaymentLineCreate(models.TransientModel):
         ('due', 'Due Date'),
         ('move', 'Move Date'),
         ], string="Type of Date Filter", required=True)
-    due_date = fields.Date(string="Due Date")
-    move_date = fields.Date(
-        string='Move Date', default=fields.Date.context_today)
+    due_date = fields.Date()
+    move_date = fields.Date(default=fields.Date.context_today)
     payment_mode = fields.Selection([
         ('same', 'Same'),
         ('same_or_null', 'Same or Empty'),
         ('any', 'Any'),
-        ], string='Payment Mode')
+        ])
     move_line_ids = fields.Many2many(
         'account.move.line', string='Move Lines')
 

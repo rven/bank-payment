@@ -16,11 +16,10 @@ class BankPaymentLine(models.Model):
         'account.payment.order', string='Order', ondelete='cascade',
         index=True, readonly=True)
     payment_type = fields.Selection(
-        related='order_id.payment_type', string="Payment Type",
+        related='order_id.payment_type',
         readonly=True, store=True)
     state = fields.Selection(
-        related='order_id.state', string='State',
-        readonly=True, store=True)
+        related='order_id.state', readonly=True, store=True)
     payment_line_ids = fields.One2many(
         'account.payment.line', 'bank_line_id', string='Payment Lines',
         readonly=True)
@@ -47,9 +46,7 @@ class BankPaymentLine(models.Model):
         related='payment_line_ids.date', readonly=True)
     communication_type = fields.Selection(
         related='payment_line_ids.communication_type', readonly=True)
-    communication = fields.Char(
-        string='Communication', required=True,
-        readonly=True)
+    communication = fields.Char(required=True, readonly=True)
     company_id = fields.Many2one(
         'res.company',
         related='order_id.payment_mode_id.company_id', store=True,

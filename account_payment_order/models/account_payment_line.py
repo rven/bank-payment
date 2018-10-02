@@ -23,8 +23,7 @@ class AccountPaymentLine(models.Model):
         related='order_id.payment_method_id.bank_account_required',
         readonly=True)
     state = fields.Selection(
-        related='order_id.state', string='State',
-        readonly=True, store=True)
+        related='order_id.state', readonly=True, store=True)
     move_line_id = fields.Many2one(
         'account.move.line', string='Journal Item',
         ondelete='restrict')
@@ -49,11 +48,11 @@ class AccountPaymentLine(models.Model):
         ondelete='restrict')  # v8 field : bank_id
     date = fields.Date(string='Payment Date')
     communication = fields.Char(
-        string='Communication', required=True,
+        required=True,
         help="Label of the payment that will be seen by the destinee")
     communication_type = fields.Selection([
         ('normal', 'Free'),
-        ], string='Communication Type', required=True, default='normal')
+        ], required=True, default='normal')
     # v8 field : state
     bank_line_id = fields.Many2one(
         'bank.payment.line', string='Bank Payment Line', readonly=True)
